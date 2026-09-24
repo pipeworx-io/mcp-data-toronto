@@ -3,7 +3,7 @@
   "name": "io.github.pipeworx-io/data-toronto",
   "title": "Data Toronto",
   "description": "DataToronto MCP — City of Toronto open data (open.toronto.ca, CKAN API).",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "websiteUrl": "https://pipeworx.io/packs/data-toronto",
   "repository": {
     "url": "https://github.com/pipeworx-io/mcp-data-toronto",
