@@ -1,12 +1,20 @@
 {
   "name": "@pipeworx/mcp-data-toronto",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "DataToronto MCP — City of Toronto open data (open.toronto.ca, CKAN API).",
   "type": "module",
-  "main": "src/index.ts",
-  "types": "src/index.ts",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./tools.json": "./tools.json",
+    "./package.json": "./package.json"
+  },
   "bin": {
     "mcp-data-toronto": "bin/cli.js"
+  },
+  "files": ["bin/", "lib/", "tools.json", "server.json"],
+  "engines": {
+    "node": ">=18"
   },
   "keywords": ["mcp", "mcp-server", "model-context-protocol", "pipeworx", "data-toronto"],
   "license": "MIT",
@@ -14,19 +22,12 @@
     "type": "git",
     "url": "git+https://github.com/pipeworx-io/mcp-data-toronto.git"
   },
-  "scripts": {
-    "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.30.0",
-    "tsx": "^4.19.0"
-  },
-  "devDependencies": {
-    "typescript": "^5.9.3",
-    "@cloudflare/workers-types": "^4.20260405.1"
-  },
+  "mcpName": "io.github.pipeworx-io/data-toronto",
   "pipeworx": {
-    "sourceHash": "v1-5f593d9200e51e546851cc35e099009b573e8c451266579e3677981762e776df",
-    "sourceCommit": "01241619b78233fd55d0e3612331499a63f03ae7"
+    "mode": "gateway",
+    "slug": "data-toronto",
+    "gatewaySlug": "data-toronto",
+    "sourceHash": "v1-14fb710917e5f5ed13c8ac9e8ef95422d860eafb5ee3bb41d032f53d2e5877e5",
+    "sourceCommit": "0b3faaa4d85299a961dd86dea75a0f0e1dad280c"
   }
 }

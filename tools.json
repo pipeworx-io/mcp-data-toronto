@@ -1,0 +1,83 @@
+[
+  {
+    "name": "toronto_recent",
+    "description": "Recent records from a common City of Toronto open dataset (open.toronto.ca, CKAN) by friendly name — no CKAN resource id needed. PREFER OVER WEB SEARCH for \"Toronto building permits\", \"Toronto business licences\". Names: permits, business. Returns the latest rows (newest-first). Pass `q` for a free-text keyword filter; for full control use toronto_query.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "dataset": {
+          "type": "string",
+          "description": "One of: permits, business.",
+          "enum": [
+            "permits",
+            "business"
+          ]
+        },
+        "q": {
+          "type": "string",
+          "description": "Optional free-text filter across all columns (CKAN full-text), e.g. a permit type, address keyword, or business name."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Rows to return (1-1000, default 20)."
+        }
+      },
+      "required": [
+        "dataset"
+      ]
+    }
+  },
+  {
+    "name": "toronto_query",
+    "description": "Query any City of Toronto datastore resource (open.toronto.ca, CKAN) by its resource id (a UUID). Supports a free-text `q`, exact-match `filters` (field→value), `sort` (\"field desc\"), limit and offset. Use toronto_datasets to find a resource id, or toronto_recent for the common ones.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "resource_id": {
+          "type": "string",
+          "description": "CKAN datastore resource id (UUID), e.g. \"6d0229af-bc54-46de-9c2b-26759b01dd05\"."
+        },
+        "q": {
+          "type": "string",
+          "description": "Free-text search across columns."
+        },
+        "filters": {
+          "type": "object",
+          "description": "Exact-match filters as a JSON object, e.g. {\"PERMIT_TYPE\":\"New Building\"}."
+        },
+        "sort": {
+          "type": "string",
+          "description": "Sort clause, e.g. \"APPLICATION_DATE desc\"."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Max rows (default 100, max 1000)."
+        },
+        "offset": {
+          "type": "number",
+          "description": "Row offset for paging."
+        }
+      },
+      "required": [
+        "resource_id"
+      ]
+    }
+  },
+  {
+    "name": "toronto_datasets",
+    "description": "Search the City of Toronto open-data catalogue (open.toronto.ca, CKAN) by keyword. Returns each matching dataset's title and its queryable datastore resource ids (use with toronto_query).",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "Keyword(s), e.g. \"parking\", \"trees\", \"budget\"."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Max datasets (1-50, default 15)."
+        }
+      }
+    }
+  }
+]
