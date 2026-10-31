@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-data-toronto",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "DataToronto MCP — City of Toronto open data (open.toronto.ca, CKAN API).",
   "type": "module",
   "main": "lib/index.js",
@@ -27,7 +27,7 @@
     "mode": "gateway",
     "slug": "data-toronto",
     "gatewaySlug": "data-toronto",
-    "sourceHash": "v1-14fb710917e5f5ed13c8ac9e8ef95422d860eafb5ee3bb41d032f53d2e5877e5",
-    "sourceCommit": "0b3faaa4d85299a961dd86dea75a0f0e1dad280c"
+    "sourceHash": "v1-ebc2d5d141eeb974e859c4e9ca422c042682eeaf95fe858828994838e1911063",
+    "sourceCommit": "5ce1a05186d46479e23865c66bdb8579d8de445e"
   }
 }
